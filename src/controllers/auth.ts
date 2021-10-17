@@ -24,9 +24,7 @@ export const postLogin = async (req: Request, res: Response) => {
   if ((await queryResult).rows.length) {
     const passwordForEmail = (await queryResult).rows[0].password;
     if (await bcrypt.compare(password, passwordForEmail)) {
-      console.log('here1');
       req.session.email = email;
-      // req.flash('loginSuccess', 'You have successfully logged in');
       res.redirect('/panel');
     } else {
       req.flash('loginFailure', 'Incorrect Username or Password');
