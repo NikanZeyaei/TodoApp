@@ -1,4 +1,4 @@
-# TodoApp
+# TodoApp (WIP)
 A simple todo app (With auth) built with: <br>
 -Nodejs<br>
 -Typescript<br>
