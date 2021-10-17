@@ -1,0 +1,78 @@
+body, html {
+    height: 100%;
+    background-image: url(/Pictures/Bg.png);
+}
+
+* {
+    box-sizing: border-box;
+}
+h1 {
+    color: rgb(78, 69, 28);
+}
+.container {
+    position: absolute;
+    margin: 20px;
+    max-width: 300px;
+    padding: 16px;
+    background-color: white;
+    right: 0;
+    border-radius: 5px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 300;
+    transition: box-shadow 0.5s;
+}
+
+.container:hover {
+    box-shadow: rgba(0,0,0,0.3) 2px 2px 10px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 5px;
+    transition: background-color 0.5s;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.btn {
+    background-image: url(/Pictures/Bg.png);
+    background-size: cover;
+    color: white;
+    padding: 16px 20px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    position: relative;
+    border-radius: 5px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    transition: opacity 0.5s;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.container-index {
+    position: absolute;
+    left: 35%;
+    top: 35%;
+    /* margin: auto; */
+    max-width: 300px;
+    padding: 16px;
+    background-color: white;
+    right: 0;
+    border-radius: 5px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 300;
+    transition: box-shadow 0.5s;
+}
