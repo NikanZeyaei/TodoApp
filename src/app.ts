@@ -8,7 +8,7 @@ import authRouter from './routes/auth';
 
 dotenv.config();
 
-const app = express();
+const app = Express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
