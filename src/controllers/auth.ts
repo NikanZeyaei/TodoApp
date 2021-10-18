@@ -39,10 +39,7 @@ export const postRegister = async (req: Request, res: Response) => {
   const password = req.body.password as string;
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
-  const checkForExisting = await pool.query(
-    'SELECT * from USERS where email = $1',
-    [email],
-  );
+  const checkForExisting = await pool.query(findUserByEmail, [email]);
   if (checkForExisting.rowCount) {
     req.flash('registerFailure', 'This email already exists');
     res.redirect('/register');
