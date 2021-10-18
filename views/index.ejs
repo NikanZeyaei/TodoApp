@@ -10,6 +10,14 @@
   <body>
     <div class="container-index">
       <h1 style="font-size: 18px;">The one stop for all your todo needs!</h1>
+      <% if(isLoggedIn) { %> 
+      <h2>You are already logged in!</h2>
+      <a href='/panel'>
+        <button class="btn">
+            Panel
+        </button>
+        <% } %> 
+        <% if(!isLoggedIn) { %> 
       <a href='/login'>
       <button class="btn">
           Login
@@ -18,6 +26,7 @@
         <button class="btn">
             Reigster
         </button>
+        <% } %> 
       </div>
     <!-- <h1>The one stop for all your Todo needs!</h1>
     <a href="/panel">Click here to see your previous todos!</a>
