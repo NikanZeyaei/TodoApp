@@ -1,4 +1,4 @@
-import express from 'express';
+import Express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
 import session from 'express-session';
@@ -8,10 +8,10 @@ import authRouter from './routes/auth';
 
 dotenv.config();
 
-const app = express();
+const app = Express();
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(Express.urlencoded({ extended: true }));
+app.use(Express.json());
 app.use(
   session({
     secret: process.env.session_secret!,
@@ -26,7 +26,7 @@ app.use(flash());
 app.use(todoRouter);
 app.use(authRouter);
 
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(Express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../views'));
 

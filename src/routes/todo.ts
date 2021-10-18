@@ -1,8 +1,8 @@
-import express from 'express';
+import { Router } from 'express';
 import { getIndex, getPanel } from '../controllers/todo';
 import { isLoggedIn } from '../middlewares/auth';
 
-const router = express.Router();
+const router = Router();
 
 router.get('/', getIndex);
 

@@ -1,4 +1,4 @@
-import Express from 'express';
+import { Router } from 'express';
 import {
   getLogin,
   getRegister,
@@ -8,7 +8,7 @@ import {
 } from '../controllers/auth';
 import { isLoggedIn, isNotLoggedIn } from '../middlewares/auth';
 
-const router = Express.Router();
+const router = Router();
 
 router.get('/login', isNotLoggedIn, getLogin);
 
