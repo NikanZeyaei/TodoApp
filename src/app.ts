@@ -30,6 +30,6 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../views'));
 
-app.listen('3000', () => {
+app.listen(process.env.SERVER_PORT || '3000', () => {
   console.log('Started on http://localhost:3000');
 });

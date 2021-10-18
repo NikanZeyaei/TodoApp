@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
-import pool from '../db/queries';
+import { findUserByEmail, insertUser, pool } from '../db/queries';
 
 export const getLogin = async (req: Request, res: Response) => {
   res.render('login', {
@@ -18,9 +18,7 @@ export const getRegister = (req: Request, res: Response) => {
 export const postLogin = async (req: Request, res: Response) => {
   const email = req.body.email as string;
   const password = req.body.password as string;
-  const queryResult = pool.query('select * from USERS where email = $1;', [
-    email,
-  ]);
+  const queryResult = pool.query(findUserByEmail, [email]);
   if ((await queryResult).rows.length) {
     const passwordForEmail = (await queryResult).rows[0].password;
     if (await bcrypt.compare(password, passwordForEmail)) {
@@ -49,10 +47,7 @@ export const postRegister = async (req: Request, res: Response) => {
     req.flash('registerFailure', 'This email already exists');
     res.redirect('/register');
   } else {
-    await pool.query('insert into users(email, password) values ($1,$2)', [
-      email,
-      hashedPassword,
-    ]);
+    await pool.query(insertUser, [email, hashedPassword]);
     req.flash('registerSuccess', 'You have been successfully registered!');
     res.redirect('/login');
   }

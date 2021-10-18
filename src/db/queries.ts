@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const pool = new Pool({
+export const pool = new Pool({
   user: process.env.db_user,
   host: process.env.db_host,
   database: process.env.db_database,
@@ -11,12 +11,6 @@ const pool = new Pool({
   port: 5432,
 });
 
-// const pool = new Pool({
-//     user: process.env.db_user,
-//     host: process.env.db_host,
-//     database: process.env.db_database,
-//     password: process.env.db_password,
-//     port: process.env.db_port?
-// });
+export const findUserByEmail = 'select * from USERS where email = $1;';
 
-export = pool;
+export const insertUser = 'insert into users(email, password) values ($1,$2)';

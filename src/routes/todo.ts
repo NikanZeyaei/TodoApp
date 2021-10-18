@@ -8,10 +8,4 @@ router.get('/', getIndex);
 
 router.get('/panel', isLoggedIn, getPanel);
 
-// router.get('/add', (req, res) => {
-//   res.render('addtodo');
-// });
-
-// router.post('/add', (req, res) => {});
-
 export = router;
