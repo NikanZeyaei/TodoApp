@@ -6,3 +6,5 @@ const router = Router();
 router.get('*', get404);
 
 router.all('*', other404);
+
+export = router;

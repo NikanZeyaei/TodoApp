@@ -4,13 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Panel</title>
+    <title>Test</title>
     <%- include('partials/includes') %>
   </head>
   <body>
+    <script>
+      setTimeout(() => {
+        window.location = '/';
+      }, 3 * 1000);
+    </script>
     <div class="container-index">
-      <h1>Main Panel</h1>
-      <form action="/logout" method="POST">
-        <button type="submit" class="btn">Logout</button>
+      <h1 style="font-size: 18px">Not found!</h1>
+      <h2>You will be redirected in 3 seconds . . .</h2>
+    </div>
   </body>
 </html>
