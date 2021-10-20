@@ -18,10 +18,12 @@ export const getRegister = (req: Request, res: Response) => {
 export const postLogin = async (req: Request, res: Response) => {
   const email = req.body.email as string;
   const password = req.body.password as string;
-  const queryResult = pool.query(findUserByEmail, [email]);
-  if ((await queryResult).rows.length) {
-    const passwordForEmail = (await queryResult).rows[0].password;
+  const queryResult = await pool.query(findUserByEmail, [email]);
+  if (queryResult.rows.length) {
+    const passwordForEmail: string = queryResult.rows[0].password;
+    const userId: number = queryResult.rows[0].id;
     if (await bcrypt.compare(password, passwordForEmail)) {
+      req.session.userId = userId;
       req.session.email = email;
       res.redirect('/panel');
     } else {

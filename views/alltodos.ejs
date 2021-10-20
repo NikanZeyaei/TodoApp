@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All todos</title>
+    <%- include('partials/includes') %>
+  </head>
+  <body>
+    <div class="container-index">
+        <% if(todos.length) { %>
+            <% for(let todo of todos) { %> 
+                <h1><%= todo.title %> </h1>
+                <h2><%= todo.todo_text %> </h2>
+                <br><br>
+            <% } %> 
+        <% } %> 
+      <% if(!todos.length) { %>
+      <h2>You have no todos yet! How about adding one?</h2>
+      <a href='/panel/add'>
+        <button class="btn">
+            Add new Todo
+        </button>
+      <% } %>
+      <a href='/panel'>
+        <button class="btn">
+            Go back to the main panel
+        </button>
+    </div>
+  </body>
+</html>

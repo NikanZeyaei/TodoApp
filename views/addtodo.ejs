@@ -4,13 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('partials/includes') %>
     <title>Add a new Todo</title>
   </head>
   <body>
-    <form action="/add" method="post">
-      <label for="todo"></label>
-      <input type="text" name="todo" />
-      <input type="submit" value="Submit" />
-    </form>
+    <div class="container-index">
+      <form action="/panel/add" method="post">
+        <label for="title">Title</label>
+        <input type="text" name="title" required />
+        <label for="todo">Todo</label>
+        <textarea name="todo" cols="30" rows="10" required ></textarea>
+        <input type="submit" value="Submit" class="btn" />
+      </form>
+      <a href='/panel'>
+        <button class="btn">
+            Cancel
+        </button>
+    </div>
   </body>
 </html>
