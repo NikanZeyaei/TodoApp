@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
-import { findAllTodosByUserId, insertTodo, pool } from '../db/queries';
+import { pool } from '../db/pool';
+import { findAllTodosByUserId, insertTodo } from '../db/queries';
 import { isLoggedInFuncion } from '../functions/isLoggedInFunction';
 import { todo } from '../types/global';
 
