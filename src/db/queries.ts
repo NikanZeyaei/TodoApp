@@ -1,8 +1,8 @@
-export const findUserByEmail = 'select * from USERS where email = $1;';
+export const findUserByEmail = 'select * from users where email = ?;';
 
-export const insertUser = 'insert into users(email, password) values ($1,$2)';
+export const insertUser = 'insert into users(email, password) values (?,?)';
 
 export const insertTodo =
-  'insert into todos (title, todo_text, author_id) VALUES ($1,$2,$3)';
+  'insert into todos (title, todo_text, author_id) VALUES (?,?,?)';
 
-export const findAllTodosByUserId = 'select * from todos where author_id = $1;';
+export const findAllTodosByUserId = 'select * from todos where author_id = ?;';

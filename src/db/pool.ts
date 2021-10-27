@@ -1,12 +1,12 @@
-import { Pool } from 'pg';
+import { createConnection } from 'mysql2';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-export const pool = new Pool({
-  user: process.env.db_user,
+export const pool = createConnection({
   host: process.env.db_host,
-  database: process.env.db_database,
+  port: 3306,
+  user: process.env.db_user,
   password: process.env.db_password,
-  port: 5432,
+  database: process.env.db_database,
 });
