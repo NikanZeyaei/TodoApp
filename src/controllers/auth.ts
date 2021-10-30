@@ -23,21 +23,17 @@ export const postLogin = async (req: Request, res: Response) => {
   const poolResult = await pool.promise().query(findUserByEmail, [email]);
   const queryResult = poolResult[0] as user[];
   if (queryResult.length) {
-    console.log('here1');
     const passwordForEmail: string = queryResult[0].password;
     const userId: number = queryResult[0].id;
     if (await bcrypt.compare(password, passwordForEmail)) {
-      console.log('here2');
       req.session.userId = userId;
       req.session.email = email;
       res.redirect('/panel');
     } else {
-      console.log('here3');
       req.flash('loginFailure', 'Incorrect Username or Password');
       res.redirect('/login');
     }
   } else {
-    console.log('here4');
     req.flash('loginFailure', 'Incorrect Username or Password');
     res.redirect('/login');
   }
