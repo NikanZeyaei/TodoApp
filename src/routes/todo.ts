@@ -5,6 +5,7 @@ import {
   getAddTodo,
   postAddTodo,
   getAllTodos,
+  deleteTodo,
 } from '../controllers/todo';
 import { isLoggedIn } from '../middlewares/auth';
 
@@ -15,6 +16,8 @@ router.get('/', getIndex);
 router.get('/panel', isLoggedIn, getPanel);
 
 router.get('/panel/todos', isLoggedIn, getAllTodos);
+
+router.delete('/panel/todos/:id', isLoggedIn, deleteTodo);
 
 router.get('/panel/add', isLoggedIn, getAddTodo);
 

@@ -1,6 +1,10 @@
 import { Request, Response } from 'express';
 import { pool } from '../db/pool';
-import { findAllTodosByUserId, insertTodo } from '../db/queries';
+import {
+  findAllTodosByUserId,
+  insertTodo,
+  deleteTodoById,
+} from '../db/queries';
 import { isLoggedInFuncion } from '../functions/isLoggedInFunction';
 import { todo } from '../types/db/dbtypes';
 
@@ -17,7 +21,10 @@ export const getAllTodos = async (req: Request, res: Response) => {
     .promise()
     .query(findAllTodosByUserId, [req.session.userId]);
   const todos = poolResult[0] as todo[];
-  res.render('alltodos', { todos: todos });
+  res.render('alltodos', {
+    todos: todos,
+    deleteSuccess: req.flash('deleteSuccess'),
+  });
 };
 
 export const getAddTodo = (req: Request, res: Response) => {
@@ -32,5 +39,12 @@ export const postAddTodo = async (req: Request, res: Response) => {
   const todo = req.body.todo as string;
   const userId = req.session.userId as number;
   await pool.promise().query(insertTodo, [title, todo, userId]);
+  res.redirect('/panel/todos');
+};
+
+export const deleteTodo = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  await pool.promise().query(deleteTodoById, [id]);
+  req.flash('deleteSuccess', 'A todo was successfully deleted!');
   res.redirect('/panel/todos');
 };

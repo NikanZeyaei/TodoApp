@@ -6,3 +6,5 @@ export const insertTodo =
   'insert into todos (title, todo_text, author_id) VALUES (?,?,?)';
 
 export const findAllTodosByUserId = 'select * from todos where author_id = ?;';
+
+export const deleteTodoById = 'delete from todos where id = ?;';

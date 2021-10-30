@@ -9,20 +9,26 @@
   </head>
   <body>
     <div class="container-index">
+      <% if (deleteSuccess) { %>
+        <h2 style="color: red"><%= deleteSuccess %></h2>
+      <% } %>
         <% if(todos.length) { %>
             <% for(let todo of todos) { %> 
                 <h1><%= todo.title %> </h1>
                 <h2><%= todo.todo_text %> </h2>
+                <form action="/panel/todos/<%= todo.id %>?_method=DELETE" method="post">
+                <button class="btn">Delete</button>
+              </form>
                 <br><br>
             <% } %> 
         <% } %> 
       <% if(!todos.length) { %>
       <h2>You have no todos yet! How about adding one?</h2>
+      <% } %>
       <a href='/panel/add'>
         <button class="btn">
             Add new Todo
         </button>
-      <% } %>
       <a href='/panel'>
         <button class="btn">
             Go back to the main panel

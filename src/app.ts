@@ -3,6 +3,7 @@ import path from 'path';
 import dotenv from 'dotenv';
 import session from 'express-session';
 import flash from 'connect-flash';
+import methodOverride from 'method-override';
 import todoRouter from './routes/todo';
 import authRouter from './routes/auth';
 import router_404 from './routes/404';
@@ -25,6 +26,7 @@ app.use(
 );
 app.use(flash());
 
+app.use(methodOverride('_method'));
 app.use(Express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../views'));
