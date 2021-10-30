@@ -2,7 +2,7 @@ name: Test build (CI)
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main,mysql]
 
 jobs:
   test_pull_request:
