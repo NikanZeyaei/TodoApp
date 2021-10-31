@@ -5,6 +5,10 @@ import {
   postLogin,
   postRegister,
   postLogout,
+  getResetPassword,
+  postResetPassword,
+  getTokenVerification,
+  postNewPassword,
 } from '../controllers/auth';
 import { isLoggedIn, isNotLoggedIn } from '../middlewares/auth';
 
@@ -19,5 +23,13 @@ router.post('/login', isNotLoggedIn, postLogin);
 router.post('/register', isNotLoggedIn, postRegister);
 
 router.post('/logout', isLoggedIn, postLogout);
+
+router.get('/reset', isNotLoggedIn, getResetPassword);
+
+router.post('/reset', isNotLoggedIn, postResetPassword);
+
+router.get('/reset/:token', isNotLoggedIn, getTokenVerification);
+
+router.post('/new-password', isNotLoggedIn, postNewPassword);
 
 export = router;
