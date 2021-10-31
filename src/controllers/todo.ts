@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
-import { pool } from '../db/pool';
+import { pool } from '../models/pool';
 import {
   findAllTodosByUserId,
   insertTodo,
   deleteTodoById,
-} from '../db/queries';
+} from '../models/queries';
 import { isLoggedInFuncion } from '../functions/isLoggedInFunction';
-import { todo } from '../types/db/dbtypes';
+import { todo } from '../models/types/db/dbtypes';
 
 export const getIndex = (req: Request, res: Response) => {
   res.render('index', { isLoggedIn: isLoggedInFuncion(req) });

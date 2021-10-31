@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
-import { pool } from '../db/pool';
-import { findUserByEmail, insertUser } from '../db/queries';
-import { todo, user } from '../types/db/dbtypes';
+import { pool } from '../models/pool';
+import { findUserByEmail, insertUser } from '../models/queries';
+import { todo, user } from '../models/types/db/dbtypes';
 
 export const getLogin = async (req: Request, res: Response) => {
   res.render('login', {
