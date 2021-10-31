@@ -5,7 +5,7 @@ import {
   insertTodo,
   deleteTodoById,
 } from '../models/queries';
-import { isLoggedInFuncion } from '../functions/isLoggedInFunction';
+import { isLoggedInFuncion } from '../helpers/isLoggedInFunction';
 import { todo } from '../models/types/db/dbtypes';
 
 export const getIndex = (req: Request, res: Response) => {
