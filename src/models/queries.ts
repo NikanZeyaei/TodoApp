@@ -8,3 +8,11 @@ export const insertTodo =
 export const findAllTodosByUserId = 'select * from todos where author_id = ?;';
 
 export const deleteTodoById = 'delete from todos where id = ?;';
+
+export const insertResetToken =
+  'UPDATE users SET reset_token = ? , reset_token_expiration = ? where email = ?;';
+
+export const findUserByToken = 'select * from users where reset_token = ?';
+
+export const updatePasswordByEmail =
+  'UPDATE users SET password = ? WHERE email = ?';

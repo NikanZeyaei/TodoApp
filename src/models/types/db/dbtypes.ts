@@ -2,6 +2,8 @@ export interface user {
   id: number;
   email: string;
   password: string;
+  reset_token: string;
+  reset_token_expiration: number;
 }
 
 export interface todo {
