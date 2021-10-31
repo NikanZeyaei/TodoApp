@@ -19,6 +19,7 @@ export const getLogin = (req: Request, res: Response) => {
   res.render('login', {
     error: req.flash('loginFailure'),
     registerSuccess: req.flash('registerSuccess'),
+    passwordResetSuccessful: req.flash('resetPasswordSuccessful'),
   });
 };
 
@@ -150,10 +151,11 @@ export const postNewPassword = async (req: Request, res: Response) => {
       await pool
         .promise()
         .query(updatePasswordByEmail, [hashedPassword, email]);
-      return res.send('Password was changed successfully');
+      req.flash('resetPasswordSuccessful', 'Password reset was successful');
+      return res.redirect('/login');
     } else {
-      res.send('error');
+      res.send('Unhandled Exception'); // TODO Fix this
     }
   }
-  res.send('not found');
+  res.send('Unhandled Exception'); // TODO Fix this
 };

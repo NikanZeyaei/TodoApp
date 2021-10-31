@@ -16,6 +16,9 @@
         <% } %> <% if(registerSuccess) { %>
         <h2 style="color: green"><%= registerSuccess %></h2>
         <% } %>
+        <% if (passwordResetSuccessful) { %>
+          <h2 style="color: green"><%= passwordResetSuccessful %></h2>
+        <% } %>
         <label for="email"><b>Email</b></label>
         <input type="email" placeholder="Enter Email" name="email" required />
 
