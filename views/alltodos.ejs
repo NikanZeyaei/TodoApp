@@ -17,6 +17,7 @@
                 <h1><%= todo.title %> </h1>
                 <h2><%= todo.todo_text %> </h2>
                 <form action="/panel/todos/<%= todo.id %>?_method=DELETE" method="post">
+                  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <button class="btn">Delete</button>
               </form>
                 <br><br>

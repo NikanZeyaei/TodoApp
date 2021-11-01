@@ -18,3 +18,13 @@ export const isNotLoggedIn = (
   }
   next();
 };
+
+export const csrfMiddleware = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  res.locals.isLoggedIn = req.session.email;
+  res.locals.csrfToken = req.csrfToken();
+  next();
+};

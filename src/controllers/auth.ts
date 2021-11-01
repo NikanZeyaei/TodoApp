@@ -20,6 +20,7 @@ export const getLogin = (req: Request, res: Response) => {
     error: req.flash('loginFailure'),
     registerSuccess: req.flash('registerSuccess'),
     passwordResetSuccessful: req.flash('resetPasswordSuccessful'),
+    csrfToken: req.csrfToken(),
   });
 };
 

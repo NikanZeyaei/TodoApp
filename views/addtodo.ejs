@@ -14,6 +14,7 @@
         <input type="text" name="title" required />
         <label for="todo">Todo</label>
         <textarea name="todo" cols="30" rows="10" required ></textarea>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <input type="submit" value="Submit" class="btn" />
       </form>
       <a href='/panel'>

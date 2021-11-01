@@ -13,7 +13,9 @@ export const getIndex = (req: Request, res: Response) => {
 };
 
 export const getPanel = (req: Request, res: Response) => {
-  res.render('panel');
+  res.render('panel', {
+    csrfToken: req.csrfToken(),
+  });
 };
 
 export const getAllTodos = async (req: Request, res: Response) => {

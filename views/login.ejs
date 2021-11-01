@@ -29,7 +29,7 @@
           name="password"
           required
         />
-
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <button type="submit" class="btn">Let's gooo</button>
       </form>
       <a href='/reset'>
