@@ -1,5 +1,5 @@
 # TodoApp (WIP)
-A simple todo app (With auth) built with: <br>
+A todo app (With auth and email verification) built with: <br>
 -Nodejs<br>
 -Typescript<br>
 -Express<br>
